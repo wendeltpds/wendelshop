@@ -9,9 +9,6 @@ export default  function Home() {
     <main>
         <Banner />
         <Products />
-        <Link href={"/order"} > 
-            pedidos
-        </Link>
     </main>
   )
 }
