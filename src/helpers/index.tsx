@@ -1,0 +1,31 @@
+import  { productData }  from "@/constants/data"
+
+export const getProducts = async () => {
+    const res = await fetch("https://fakestoreapiserver.reactbd.com/smart");
+    if (!res.ok) {
+      throw new Error("Faild to fetch products");
+    }
+    return res.json();
+  };
+
+export const getTrendingProducts = async () => {
+    const res = await fetch(
+      "https://fakestoreapiserver.reactbd.com/smarttrending"
+    );
+    if (!res.ok) {
+      throw new Error("Faild to fetch products");
+    }
+    return res.json();
+};
+  
+export const calculatePercentage = (price: any , oldPrice: any) => {
+    return !!parseFloat(price) && !!parseFloat(oldPrice)
+      ? ((price - oldPrice)/price * 100).toFixed()
+      : 0;
+};
+
+
+export const getSingleProudct = (_id : number) => {
+  const item = productData.find((product: any) => product._id === _id);
+  return item;
+};
